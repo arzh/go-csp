@@ -4,7 +4,7 @@ import "unicode/utf8"
 
 func Copy(west chan rune) (east chan rune) {
 	east = make(chan rune, 3)
-	
+
 	go func() {
 		for {
 			c, ok := <-west
@@ -15,7 +15,7 @@ func Copy(west chan rune) (east chan rune) {
 			east <- c
 		}
 	}()
-	
+
 	return
 }
 
@@ -55,7 +55,7 @@ func csp_squash(west, east chan rune) {
 func Assemble(e chan rune) chan string {
 	lp := make(chan string)
 
-	go func(){
+	go func() {
 		s := ""
 
 		for {
@@ -81,7 +81,7 @@ func Assemble(e chan rune) chan string {
 func Disassemble(cr chan string) chan rune {
 	c := make(chan rune, 3)
 
-	go func(){
+	go func() {
 		for {
 			card, ok := <-cr
 			if !ok {

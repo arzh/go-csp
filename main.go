@@ -5,7 +5,7 @@ import "fmt"
 func CardReader() chan string {
 	cr := make(chan string)
 
-	data := [...]string { 
+	data := [...]string{
 		`1234567890qwertyuiop[]asdfghjkl;'zxc**vbnm,./?><":}{+_)(*&^%$#@!ASDfadsgfaFGGfat`,
 		`jaskd;lkjL:LKJHA;lkjdsaf;lkasdf;lkhf'L:KAS:FJBADF:"Lkhasd;flkjjasdfl;KHASD;lhlka`,
 		`J:AKSJD:Jba;slkjhdf;jabsd;flkHA:dfkba'dflkH"DFlkh"LASDkhfashfoaweioi**A(YASPjkln`,
@@ -38,7 +38,7 @@ func CardReader() chan string {
 		`dahfu9h4rtokhtiusikhtpoiu;h.asdfhniuasd;klfjhasw8uflksdjahfoikjht89i45yh98tr4y89`,
 		`484y48ytqo9hdfkljahsd89hawefiohadsp98yhalsjkdhcvpa98dwyfilajksdhflksdjahflsdajkh`,
 		`flasdjkhfahs;fgkjhnaspfuhq3wp[gjknqwep[0frivjas[dfg')asdfaskmdn.aksnd;lkans;dlkf`,
-		`ja;sdlkjf;lsjkadfp0iha;rnjgqp938htg9i34ht9834y8943ypihLJH9i8yLijasdfasdf356djh78` }
+		`ja;sdlkjf;lsjkadfp0iha;rnjgqp938htg9i34ht9834y8943ypihLJH9i8yLijasdfasdf356djh78`}
 
 	go func() {
 		for _, card := range data {
@@ -52,10 +52,10 @@ func CardReader() chan string {
 
 func LinePrinter(feed chan string) {
 
-	for card, ok := <-feed; ok; card, ok = <-feed{
+	for card, ok := <-feed; ok; card, ok = <-feed {
 		fmt.Println(card)
 	}
-	
+
 }
 
 func main() {
